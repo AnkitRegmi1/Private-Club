@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center.mt-5
+      .col-md-6
+        .card.shadow
+          .card-body
+            h1.card-title.text-center Join the Club
+            h2.card-title.text-center Know the Author of the Post 
+            if error
+              p.error= error
+            form(action="/join", method="POST")
+              .form-group
+                label(for="secretCode") Secret Code:
+                input#secretCode.form-control(type="text", name="secretCode", required)
+              button.btn.btn-primary.btn-block(type="submit") Join
+          // Below the card
+          .text-center.mt-3
+            .dynamic-text-container
+              span.dynamic-text(style="opacity: 0") J
+              span.dynamic-text(style="opacity: 0") o
+              span.dynamic-text(style="opacity: 0") i
+              span.dynamic-text(style="opacity: 0") n
+              span.dynamic-text(style="opacity: 0") &nbsp;
+              span.dynamic-text(style="opacity: 0") t
+              span.dynamic-text(style="opacity: 0") o
+              span.dynamic-text(style="opacity: 0") d
+              span.dynamic-text(style="opacity: 0") a
+              span.dynamic-text(style="opacity: 0") y

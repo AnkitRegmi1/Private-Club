@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Private Club
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body
+    header.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href="/") Private Club
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item: a.nav-link(href="/") Home
+          -
+            const authenticatedNavLinks = [
+              { label: 'New Message', href: '/new-message' },
+              { label: 'Join the Private Club', href: '/join' },
+              { label: 'Logout', href: '/logout' }
+            ];
+          -
+            const unauthenticatedNavLinks = [
+              { label: 'Login', href: '/login' },
+              { label: 'Sign Up', href: '/signup' }
+            ];
+          if user
+            each link in authenticatedNavLinks
+              li.nav-item: a.nav-link(href=link.href)= link.label
+          else
+            each link in unauthenticatedNavLinks
+              li.nav-item: a.nav-link(href=link.href)= link.label
+    main.container
+      block content

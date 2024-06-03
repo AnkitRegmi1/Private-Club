@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Messages
+  each message in messages
+    .card.mb-3
+      .card-body
+        h5.card-title= message.title
+        p.card-text= message.text
+        if user && user.membershipStatus
+          p.card-text Author: #{message.author.firstName} #{message.author.lastName}
+        p.card-text Upvotes: #{message.upvotes}
+        p.card-text Downvotes: #{message.downvotes}
+        form(action=`/message/upvote/${message._id}`, method='POST')
+          button.btn.btn-primary(type='submit') Upvote
+        form(action=`/message/downvote/${message._id}`, method='POST')
+          button.btn.btn-danger(type='submit') Downvote

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-center.mt-5
+      .col-md-6
+        .card.shadow
+          .card-body
+            h1.card-title.text-center New Message
+            form(action="/new-message", method="POST")
+              .form-group
+                label(for="title") Title:
+                input#title.form-control(type="text", name="title", required)
+              .form-group
+                label(for="text") Text:
+                textarea#text.form-control(name="text", rows="10", cols="50", required) 
+              button.btn.btn-primary.btn-block(type="submit") Submit
