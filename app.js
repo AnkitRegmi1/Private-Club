@@ -44,6 +44,13 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors(
+  {
+    origin:{'https://https://private-club-5ahg.vercel.app'},
+            methods:["POST","GET"],
+            credentials: true,
+           }
+      ));
 
 // Routes
 app.use('/', router);
