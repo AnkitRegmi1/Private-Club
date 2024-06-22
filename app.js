@@ -46,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors(
   {
-    origin:{'https://https://private-club-5ahg.vercel.app'},
+    origin:['https://https://private-club-5ahg.vercel.app'],
             methods:["POST","GET"],
             credentials: true,
            }
