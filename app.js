@@ -9,7 +9,7 @@ const router = require('./routes/index');
 
 const mongoURI = process.env.MONGO_URI;
 const sessionSecret = process.env.SESSION_SECRET;
-const port = process.env.PORT || 3000; // Default to port 3000 if PORT is not specified in .env
+const port = process.env.PORT || 10000; // Default to port 3000 if PORT is not specified in .env
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
