@@ -8,7 +8,8 @@ const passport = require('./middleware/passport');
 const router = require('./routes/index');
 
 const mongoURI = process.env.MONGO_URI;
-const sessionSecret = process.env.SESSION_SECRET; // Retrieve session secret from .env
+const sessionSecret = process.env.SESSION_SECRET;
+const port = process.env.PORT || 3000; // Default to port 3000 if PORT is not specified in .env
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
@@ -47,5 +48,5 @@ app.use(passport.session());
 // Routes
 app.use('/', router);
 
-// Listen
-app.listen(3000, () => console.log('App listening on port 3000'));
+// Listen on configured port
+app.listen(port, () => console.log(`App listening on port ${port}`));
